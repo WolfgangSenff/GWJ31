@@ -12,8 +12,8 @@ onready var content_container = $CanvasLayer/ActivationPopup/MainContainer/Conte
 export (String) var RoomId # Use this to target specific rooms with specific obstacles
 
 func _show_mouse_outline() -> void:
-    _room_outline.show()
-    
+	_room_outline.show()
+	
 func _hide_mouse_outline() -> void:
     _room_outline.hide()
 
