@@ -1,9 +1,37 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/ships/WASP.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Galaxy.gd" type="Script" id=3]
 
 [node name="Galaxy" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="StarBackground" type="Node" parent="."]
 
-[node name="IndividualObstacles" type="Node" parent="."]
+[node name="IndividualObstacles" type="Node2D" parent="."]
 
-[node name="PlayerHolder" type="Node" parent="."]
+[node name="WASP" parent="IndividualObstacles" instance=ExtResource( 1 )]
+position = Vector2( 130.872, 6.47493 )
+enemyControlled = true
+
+[node name="PlayerHolder" type="Node2D" parent="."]
+
+[node name="MakeShipSelectorInFuture" type="Node" parent="PlayerHolder"]
+
+[node name="WASP" parent="PlayerHolder" instance=ExtResource( 1 )]
+position = Vector2( 131.461, 106.346 )
+
+[node name="Camera2D" type="Camera2D" parent="." groups=[
+"Camera",
+]]
+position = Vector2( 127.34, 70.6357 )
+current = true
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="Camera2D"]
+
+[node name="ZoomOutPosition" type="Position2D" parent="Camera2D"]
+position = Vector2( 0, -64 )
+
+[node name="ZoomInPosition" type="Position2D" parent="Camera2D"]
