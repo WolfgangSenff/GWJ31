@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="Galaxy" type="Node2D"]
+
+[node name="StarBackground" type="Node" parent="."]
+
+[node name="IndividualObstacles" type="Node" parent="."]
+
+[node name="PlayerHolder" type="Node" parent="."]
