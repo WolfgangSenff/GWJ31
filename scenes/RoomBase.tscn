@@ -46,7 +46,6 @@ custom_constants/margin_bottom = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="input_event" from="RoomHover" to="." method="_room_input"]
 [connection signal="mouse_entered" from="RoomHover" to="." method="_show_mouse_outline"]
 [connection signal="mouse_exited" from="RoomHover" to="." method="_hide_mouse_outline"]

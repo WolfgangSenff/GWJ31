@@ -48,9 +48,6 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" parent="RoomHover" index="0"]
 shape = SubResource( 2 )
 
-[node name="ActivationPopup" parent="CanvasLayer" index="0"]
-visible = false
-
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer" index="0"]
 margin_left = 10.0
 margin_top = 10.0

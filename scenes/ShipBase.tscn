@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/ShipBase.gd" type="Script" id=1]
+[ext_resource path="res://sprites/room_activation_popup_9patch.png" type="Texture" id=2]
 
 [node name="ShipBase" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,3 +20,49 @@ update_scale = false
 [node name="CharacterNavigation" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="CharacterNavigation"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ActivationPopup" type="Popup" parent="CanvasLayer"]
+visible = true
+margin_right = 413.0
+margin_bottom = 207.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="NinePatchRect" parent="CanvasLayer/ActivationPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentContainer" type="MarginContainer" parent="CanvasLayer/ActivationPopup/MainContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 403.0
+margin_bottom = 197.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer"]
+margin_left = 196.0
+margin_top = 93.0
+margin_right = 196.0
+margin_bottom = 93.0
