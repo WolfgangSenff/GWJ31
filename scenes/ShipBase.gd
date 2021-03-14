@@ -10,8 +10,9 @@ export(int) var medicines = 0
 export(int) var integrity = 0
 export(int) var shield_x = 0
 export(int) var shield_y = 0
-var topSpeed = 0 #may need to be passed to the engines
-
+var topSpeed = 20.0 setget , get_top_speed #may need to be passed to the engines
+var currentPower = 0
+var currentDirection = deg2rad(-90)
 export (bool) var enemyControlled
 
 onready var _finish_popup = $CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/VBoxContainer
@@ -28,11 +29,18 @@ func _ready() -> void:
 	for room in rooms.get_children():
 		room.connect("room_activated", self, "_on_room_activated")
 
+func get_top_speed() -> float:
+    return 20.0
+
 func set_camera(camera : Camera2D) -> void:
 	$CameraTransform.remote_path = camera.get_path()
 
 func _on_room_activated(room, command, data) -> void:
 	handle_room_activation(room, command, data)
+
+func _physics_process(delta : float) -> void:
+    if currentPower > 0:
+        global_position += currentPower * delta * Vector2.RIGHT.rotated(currentDirection)
 
 func handle_room_activation(room, command, data) -> void:
 	# This handles the brunt of the work; when a room is
@@ -48,6 +56,11 @@ func handle_room_activation(room, command, data) -> void:
 			update_cargo(data["trading"])
 		"connect":
 			pass
+        "target-self":
+            var action = data["action"]
+            match action:
+                "update-power":
+                    currentPower = data["power"]
 	
 func handle_obstacle(obstacle, command, data) -> void:
 	# Same as above, but for obstacles. This is called

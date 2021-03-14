@@ -32,6 +32,7 @@ position = Vector2( -0.0705643, -15.8774 )
 shape = SubResource( 1 )
 
 [node name="CircularTimedProgress" parent="." index="5" instance=ExtResource( 6 )]
+visible = false
 margin_left = -6.0
 margin_top = -6.0
 margin_right = 34.0
@@ -55,4 +56,5 @@ margin_top = 83.0
 margin_right = 214.0
 margin_bottom = 103.0
 text = "Fire"
+
 [connection signal="pressed" from="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/Button" to="." method="_on_activation_button_pressed"]
