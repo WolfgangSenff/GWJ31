@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/characters/char.png" type="Texture" id=1]
+[ext_resource path="res://sprites/characters/palette_0.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+
+uniform sampler2D palette;
+
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	vec4 result_color = texture(palette, color.rg);
+	result_color.a = color.a;
+	COLOR = result_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/palette = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite"]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
