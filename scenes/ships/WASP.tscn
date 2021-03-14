@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/rooms/CommsRoom16x32.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/weapons/MissileWeapon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/rooms/ShieldRoom32x32.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/rooms/EngineRoom16x32.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 34.1933, -0.576454, 34.1274, -30.0072, 60.6612, -29.8755, 45.9129, -2.09079, -45.7372, -2.09078, -61.078, -2.09078, -60.9463, -29.8755, -34.0834, -29.678, -34.2151, -1.03733, -45.7372, 28.8543, 45.9129, 28.8543, -13.8435, -0.545654, -13.8045, -13.9421, 14.1119, -13.8762, 14.0461, -0.642296, 60.8587, -2.28831 )
@@ -28,8 +29,14 @@ position = Vector2( 47.5, -15.5 )
 shield_pos = Vector2( -47.5, 0 )
 shieldCap = 10
 
+[node name="EngineRoom" parent="Rooms" index="2" instance=ExtResource( 7 )]
+position = Vector2( 40.0516, 14.884 )
+
 [node name="ShipUnderlying" parent="." index="1"]
 texture = ExtResource( 1 )
+
+[node name="CameraTransform" parent="." index="4"]
+position = Vector2( 0, -30 )
 
 [node name="NavigationPolygonInstance" parent="CharacterNavigation" index="0"]
 navpoly = SubResource( 1 )

@@ -24,7 +24,6 @@ update_scale = false
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ActivationPopup" type="Popup" parent="CanvasLayer"]
-visible = true
 margin_right = 413.0
 margin_bottom = 207.0
 mouse_filter = 2
