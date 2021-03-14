@@ -13,6 +13,9 @@ script = ExtResource( 1 )
 
 [node name="Characters" type="Node2D" parent="."]
 
+[node name="CameraTransform" type="RemoteTransform2D" parent="."]
+update_scale = false
+
 [node name="CharacterNavigation" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="CharacterNavigation"]

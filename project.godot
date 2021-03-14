@@ -55,6 +55,14 @@ texture={
 "svg/scale": 1.0
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="ObstacleDetection"
+2d_physics/layer_3="ObstacleHitbox"
+2d_physics/layer_4="PlayerWeapon"
+2d_physics/layer_5="ObstacleWeapon"
+
 [physics]
 
 common/enable_pause_aware_picking=true

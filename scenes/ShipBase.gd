@@ -21,22 +21,29 @@ export (bool) var enemyControlled
 #  however it will happen.
 
 func _ready() -> void:
-	var rooms = $Rooms
-	for room in rooms.get_children():
-		room.connect("room_activated", self, "_on_room_activated")
-		
+    var rooms = $Rooms
+    for room in rooms.get_children():
+        room.connect("room_activated", self, "_on_room_activated")
+
+func set_camera(camera : Camera2D) -> void:
+    $CameraTransform.remote_path = camera.get_path()
+
 func _on_room_activated(room, command, data) -> void:
-	handle_room_activation(room, command, data)
-	
+    handle_room_activation(room, command, data)
+
 func handle_room_activation(room, command, data) -> void:
-	# This handles the brunt of the work; when a room is
-	#  activated, this function will read the command,
-	#  interpret it, and apply the values in data
-	#  accordingly.
-	if command == "connect":
-		pass
-	pass
-	
+    # This handles the brunt of the work; when a room is
+    #  activated, this function will read the command,
+    #  interpret it, and apply the values in data
+    #  accordingly.
+    #room_activated("target-enemy", { "damage" : Damage, "effects" : [], "scene" : Projectile, "fire_position" : $FirePosition.global_position, "fire_rotation" })
+    
+    match command:
+        "target-enemy":
+            var scene = Globals.SpawnOnMain(data["scene"], data["fire_position"], data["fire_rotation"], true)
+        "connect":
+            pass
+    
 func handle_obstacle(obstacle, command, data) -> void:
 	# Same as above, but for obstacles. This is called
 	#  from the galaxy directly
