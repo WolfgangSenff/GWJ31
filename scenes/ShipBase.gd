@@ -13,6 +13,8 @@ var topSpeed = 0 #may need to be passed to the engines
 
 export (bool) var enemyControlled
 
+onready var _finish_popup = $CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/VBoxContainer
+
 # Each of the rooms will signal up to the ShipBase when changes
 #  in status have to occur based on the room.
 
@@ -24,6 +26,7 @@ func _ready() -> void:
     var rooms = $Rooms
     for room in rooms.get_children():
         room.connect("room_activated", self, "_on_room_activated")
+    call_deferred("connect_comms")
 
 func set_camera(camera : Camera2D) -> void:
     $CameraTransform.remote_path = camera.get_path()
@@ -48,3 +51,26 @@ func handle_obstacle(obstacle, command, data) -> void:
 	# Same as above, but for obstacles. This is called
 	#  from the galaxy directly
 	pass
+	
+func update_cargo(goodsTraded, source):
+	var earn = Label.new()
+	earn.text = "you got " + str(goodsTraded.give_quantity) + " " + goodsTraded.give
+	_finish_popup.add_child(earn)
+	var expend = Label.new()
+	expend.text = "for " + str(goodsTraded.take_quantity) + " " + goodsTraded.take
+	_finish_popup.add_child(expend)
+	var close = Button.new()
+	close.text = "close"
+	close.connect("pressed", self, "close")
+	_finish_popup.add_child(close)
+	$CanvasLayer/ActivationPopup.popup_centered_ratio(.8)
+	
+func close():
+	$CanvasLayer/ActivationPopup.hide()
+	for i in _finish_popup.get_children():
+		_finish_popup.remove_child(i)
+		i.queue_free()
+	
+	
+func connect_comms():
+	$Rooms/CommsRoom.connect("traded", self, "update_cargo")
