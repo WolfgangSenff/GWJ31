@@ -45,6 +45,6 @@ func handle_room_activation(room, command, data) -> void:
             pass
     
 func handle_obstacle(obstacle, command, data) -> void:
-	# Same as above, but for obstacles. This is called
-	#  from the galaxy directly
-	pass
+    # Same as above, but for obstacles. This is called
+    #  from the galaxy directly
+    pass
