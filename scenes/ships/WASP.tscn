@@ -21,6 +21,10 @@ Projectile = ExtResource( 5 )
 position = Vector2( -40, 16 )
 sensorRange = 100
 
+[node name="CommsRoom" parent="Rooms" index="1" instance=ExtResource( 4 )]
+position = Vector2( -40, 16 )
+sensorRange = 100
+
 [node name="ShipUnderlying" parent="." index="1"]
 texture = ExtResource( 1 )
 

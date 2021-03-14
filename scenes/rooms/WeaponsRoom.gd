@@ -7,8 +7,8 @@ export (int) var Damage
 export (PackedScene) var Projectile
 
 func _handle_mouse_input():
-    if _button_timer.is_ready:
-        ._handle_mouse_input()
+	if _button_timer.is_ready:
+		._handle_mouse_input()
 
 func _on_activation_button_pressed() -> void:
     _button_timer.begin_refresh()

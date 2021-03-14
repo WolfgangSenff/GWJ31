@@ -15,24 +15,24 @@ func _show_mouse_outline() -> void:
 	_room_outline.show()
 	
 func _hide_mouse_outline() -> void:
-    _room_outline.hide()
+	_room_outline.hide()
 
 func _room_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-    if event is InputEventMouseButton and event.is_pressed():
-        _handle_mouse_input()
+	if event is InputEventMouseButton and event.is_pressed():
+		_handle_mouse_input()
 
 # When the room is extended, override this to handle what happens.
 #  The default for now is to show the ActivationPopup
 func _handle_mouse_input():
-    _activation_popup.popup_centered_ratio(.8)
-    # Chose .8 for no real reason
-    
+	_activation_popup.popup_centered_ratio(.8)
+	# Chose .8 for no real reason
+	
 
 # Emit room_activated when this room actually executes its command,
 #  so like the Helm would emit the signal when the player changes
 #  the direction the ship is going
 
 func room_activated(command, data) -> void:
-    emit_signal("room_activated", self, command, data)
-    # All this does is emits the signal; however, individual
-    #  rooms should call this when needed
+	emit_signal("room_activated", self, command, data)
+	# All this does is emits the signal; however, individual
+	#  rooms should call this when needed
