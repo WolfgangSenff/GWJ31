@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sprites/demo_ship_base.png" type="Texture" id=1]
 [ext_resource path="res://scenes/ShipBase.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/rooms/WeaponsRoom32x32.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/rooms/CommsRoom16x32.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 34.1933, -0.576454, 34.1274, -30.0072, 60.6612, -29.8755, 45.9129, -2.09079, -45.7372, -2.09078, -61.078, -2.09078, -60.9463, -29.8755, -34.0834, -29.678, -34.2151, -1.03733, -45.7372, 28.8543, 45.9129, 28.8543, -13.8435, -0.545654, -13.8045, -13.9421, 14.1119, -13.8762, 14.0461, -0.642296, 60.8587, -2.28831 )
@@ -13,6 +14,10 @@ outlines = [ PoolVector2Array( -60.9463, -29.8755, -61.078, -2.09078, -45.7372, 
 
 [node name="WeaponsRoom" parent="Rooms" index="0" instance=ExtResource( 3 )]
 position = Vector2( -47.5, -15.5 )
+
+[node name="CommsRoom" parent="Rooms" index="1" instance=ExtResource( 4 )]
+position = Vector2( -40, 16 )
+sensorRange = 100
 
 [node name="ShipUnderlying" parent="." index="1"]
 texture = ExtResource( 1 )
