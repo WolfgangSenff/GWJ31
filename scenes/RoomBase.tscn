@@ -20,7 +20,6 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ActivationPopup" type="Popup" parent="CanvasLayer"]
-visible = true
 margin_right = 413.0
 margin_bottom = 207.0
 mouse_filter = 2
@@ -47,6 +46,7 @@ custom_constants/margin_bottom = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="input_event" from="RoomHover" to="." method="_room_input"]
 [connection signal="mouse_entered" from="RoomHover" to="." method="_show_mouse_outline"]
 [connection signal="mouse_exited" from="RoomHover" to="." method="_hide_mouse_outline"]
