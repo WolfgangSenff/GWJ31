@@ -26,6 +26,7 @@ sensorRange = 100
 [node name="ShieldRoom" parent="Rooms" index="2" instance=ExtResource( 6 )]
 position = Vector2( 47.5, -15.5 )
 shield_pos = Vector2( -47.5, 0 )
+shieldCap = 10
 
 [node name="ShipUnderlying" parent="." index="1"]
 texture = ExtResource( 1 )
