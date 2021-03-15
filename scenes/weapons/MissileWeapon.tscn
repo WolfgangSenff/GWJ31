@@ -33,7 +33,9 @@ height = 9.0
 offsets = PoolRealArray( 0, 0.821012, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.270588, 0.270588, 0.270588, 0.670588 )
 
-[node name="MissileWeapon" type="Area2D"]
+[node name="MissileWeapon" type="Area2D" groups=[
+"weapon",
+]]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource( 3 )
@@ -48,7 +50,6 @@ texture = ExtResource( 1 )
 [node name="Trail" type="AnimatedSprite" parent="."]
 position = Vector2( -0.142378, 10.1089 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

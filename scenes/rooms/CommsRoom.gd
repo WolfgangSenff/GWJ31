@@ -54,8 +54,7 @@ func quit():
 		
 func trade():
 	quit()
-	emit_signal("traded", _message_owner.messageSend.trading, self)
-	
+	room_activated("trade", messageSend)
 
 func parse_message(message):
 	add_text(message.text)
