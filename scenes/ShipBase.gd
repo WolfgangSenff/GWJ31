@@ -9,6 +9,8 @@ export(int) var fuel = 0
 export(int) var medicines = 0
 export(int) var integrity = 0
 export(int) var shieldCap = 0
+export(int) var shield_x = 0
+export(int) var shield_y = 0
 var topSpeed = 0 #may need to be passed to the engines
 
 export (bool) var enemyControlled
