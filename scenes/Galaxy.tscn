@@ -23,7 +23,7 @@ region_rect = Rect2( 0, 0, 10240, 10240 )
 [node name="IndividualObstacles" type="Node2D" parent="."]
 
 [node name="WASP" parent="IndividualObstacles" instance=ExtResource( 1 )]
-position = Vector2( 117.607, -137.813 )
+position = Vector2( 135.273, -459.733 )
 enemyControlled = true
 
 [node name="Area2D" type="Area2D" parent="IndividualObstacles/WASP"]
@@ -45,7 +45,9 @@ position = Vector2( 131.461, 106.346 )
 "Camera",
 ]]
 position = Vector2( 127.34, 70.6357 )
+rotating = true
 current = true
+smoothing_enabled = true
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Camera2D"]

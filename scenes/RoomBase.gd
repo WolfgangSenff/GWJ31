@@ -11,6 +11,18 @@ onready var content_container = $CanvasLayer/ActivationPopup/MainContainer/Conte
 
 export (String) var RoomId # Use this to target specific rooms with specific obstacles
 
+var room_open = false
+
+func _ready() -> void:
+    _activation_popup.connect("about_to_show", self, "_on_about_to_show_popup")
+    _activation_popup.connect("popup_hide", self, "_on_popup_hide")
+
+func _on_about_to_show_popup() -> void:
+    room_open = true
+
+func _on_popup_hide() -> void:
+    room_open = false
+
 func _show_mouse_outline() -> void:
     _room_outline.show()
     
@@ -19,6 +31,11 @@ func _hide_mouse_outline() -> void:
 
 func _room_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
     if event is InputEventMouseButton and event.is_pressed():
+        var other_rooms = get_tree().get_nodes_in_group("Room")
+        for room in other_rooms:
+            if room != self and room.room_open:
+                return
+                
         _handle_mouse_input()
 
 # When the room is extended, override this to handle what happens.
