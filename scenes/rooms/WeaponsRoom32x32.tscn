@@ -40,9 +40,6 @@ margin_bottom = 34.0
 mouse_filter = 2
 TimeToRefresh = 10
 
-[node name="ContentContainer" parent="CanvasLayer/ActivationPopup/MainContainer" index="0"]
-mouse_filter = 2
-
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer" index="0"]
 margin_left = 10.0
 margin_top = 10.0

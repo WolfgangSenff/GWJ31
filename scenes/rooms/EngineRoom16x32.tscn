@@ -10,6 +10,7 @@ extents = Vector2( 8, 16 )
 
 [node name="EngineRoom" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
+RoomId = "Engine"
 
 [node name="RoomUnderlying" parent="." index="0"]
 texture = ExtResource( 1 )
