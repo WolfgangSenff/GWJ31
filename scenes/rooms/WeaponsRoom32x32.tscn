@@ -22,7 +22,6 @@ texture = ExtResource( 3 )
 texture = ExtResource( 4 )
 
 [node name="RoomOutline-maybe-shader" parent="." index="2"]
-z_index = 2
 texture = ExtResource( 1 )
 
 [node name="FirePosition" type="Position2D" parent="." index="3"]
