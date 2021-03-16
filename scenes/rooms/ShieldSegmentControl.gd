@@ -2,17 +2,21 @@ extends Area2D
 
 var lit = true
 var charge = 0
-onready var overload = Timer.new()
+onready var overload : Timer
 
 #this is ugly and wrong but is how I can get it working fast
 onready var room = get_parent().get_parent().get_parent()
 
 func _ready():
+	overload = Timer.new()
+	add_child(overload)
 	connect("area_entered", self, "_on_body_entered")
 	
 func _on_body_entered(area):
 	if area.is_in_group("weapon") and lit == true:
 		charge += area.Damage
+		area.set_physics_process(false)
+		area.explode()
 		if charge >= room.shieldCap:
 			lit = !lit
 			get_node("CollisionShape2D").disabled = !lit
@@ -28,5 +32,6 @@ func _input_event(viewport, event, shape_idx):
 		lit = !lit
 
 func cooled():
+	print("cooled")
 	lit = !lit
 	get_node("CollisionShape2D").disabled = !lit

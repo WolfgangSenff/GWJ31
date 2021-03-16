@@ -20,24 +20,10 @@ script = ExtResource( 5 )
 texture = ExtResource( 3 )
 
 [node name="RoomOutline-maybe-shader" parent="." index="2"]
-z_index = 2
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="RoomHover" index="0"]
 shape = SubResource( 1 )
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer" index="0"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 403.0
-margin_bottom = 197.0
-
-[node name="Button" type="Button" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer" index="0"]
-margin_left = 165.0
-margin_top = 83.0
-margin_right = 228.0
-margin_bottom = 103.0
-text = "Turn Off"
 
 [node name="Shield" type="Node2D" parent="." index="5"]
 script = ExtResource( 4 )
@@ -45,6 +31,7 @@ script = ExtResource( 4 )
 [node name="SegmentN" type="Sprite" parent="Shield" index="0" groups=[
 "shield_arc",
 ]]
+position = Vector2( 0, -68 )
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentN" index="0"]
 collision_layer = 2147483652
@@ -52,13 +39,12 @@ collision_mask = 4
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/SegmentN/Area2D" index="0"]
-position = Vector2( 0, -70 )
 shape = SubResource( 2 )
 
 [node name="SegmentNE" type="Sprite" parent="Shield" index="1" groups=[
 "shield_arc",
 ]]
-position = Vector2( 50, -50 )
+position = Vector2( 48, -48 )
 rotation = 0.785398
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentNE" index="0"]
@@ -72,7 +58,7 @@ shape = SubResource( 2 )
 [node name="SegmentE" type="Sprite" parent="Shield" index="2" groups=[
 "shield_arc",
 ]]
-position = Vector2( 70, 0 )
+position = Vector2( 68, 0 )
 rotation = 1.5708
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentE" index="0"]
@@ -86,7 +72,7 @@ shape = SubResource( 2 )
 [node name="SegmentSE" type="Sprite" parent="Shield" index="3" groups=[
 "shield_arc",
 ]]
-position = Vector2( 50, 50 )
+position = Vector2( 48, 48 )
 rotation = 2.35619
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentSE" index="0"]
@@ -100,7 +86,7 @@ shape = SubResource( 2 )
 [node name="SegmentS" type="Sprite" parent="Shield" index="4" groups=[
 "shield_arc",
 ]]
-position = Vector2( 0, 70 )
+position = Vector2( 0, 68 )
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentS" index="0"]
 collision_layer = 2147483652
@@ -113,7 +99,7 @@ shape = SubResource( 2 )
 [node name="SegmentSW" type="Sprite" parent="Shield" index="5" groups=[
 "shield_arc",
 ]]
-position = Vector2( -50, 50 )
+position = Vector2( -48, 48 )
 rotation = -2.35619
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentSW" index="0"]
@@ -127,7 +113,7 @@ shape = SubResource( 2 )
 [node name="SegmentW" type="Sprite" parent="Shield" index="6" groups=[
 "shield_arc",
 ]]
-position = Vector2( -70, 0 )
+position = Vector2( -68, 0 )
 rotation = 1.5708
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentW" index="0"]
@@ -141,7 +127,7 @@ shape = SubResource( 2 )
 [node name="SegmentNW" type="Sprite" parent="Shield" index="7" groups=[
 "shield_arc",
 ]]
-position = Vector2( -50, -50 )
+position = Vector2( -48, -48 )
 rotation = 5.49779
 
 [node name="Area2D" type="Area2D" parent="Shield/SegmentNW" index="0"]
@@ -151,4 +137,17 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/SegmentNW/Area2D" index="0"]
 shape = SubResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer" index="0"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 403.0
+margin_bottom = 197.0
+
+[node name="Button" type="Button" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer" index="0"]
+margin_left = 165.0
+margin_top = 83.0
+margin_right = 228.0
+margin_bottom = 103.0
+text = "Turn Off"
 [connection signal="pressed" from="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/Button" to="." method="_on_Button_pressed"]

@@ -6,11 +6,10 @@ onready var engaged_obstacle = $IndividualObstacles/WASP
 onready var player = $PlayerHolder/WASP
 
 func _ready() -> void:
-    player.set_camera($Camera2D)
-    
-    var char_container = $GUI/MarginContainer/Control/CharacterContainer
-    var characters = $PlayerHolder/WASP/Characters
-
+	player.set_camera($Camera2D)
+	
+	var char_container = $GUI/MarginContainer/Control/CharacterContainer
+	var characters = $PlayerHolder/WASP/Characters
     for character in characters.get_children():
         var char_select_button = CharacterSelectScene.instance()
         char_container.add_child(char_select_button)
@@ -27,7 +26,6 @@ func _on_char_selected(is_pressed : bool, button) -> void:
             character._character_selected = false
             
     get_tree().call_group("Room", "disable_actions")
-    
 
 func enter_battle() -> void:
-    pass
+	pass
