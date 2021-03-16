@@ -94,7 +94,6 @@ func _on_CharacterArea_area_exited(area: Area2D) -> void:
 		
 	character_exited()
 
-
 func _on_RoomHover_area_entered(area):
 	if area.is_in_group("weapon"):
 		if area.armed == true:
@@ -104,3 +103,4 @@ func _on_RoomHover_area_entered(area):
 			emit_signal("hit", get_parent().get_parent().integrity)
 			if get_parent().get_parent().integrity == 0:
 				emit_signal("death")
+

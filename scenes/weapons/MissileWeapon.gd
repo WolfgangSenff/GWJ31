@@ -40,6 +40,5 @@ func explode() -> void:
 	yield(get_tree().create_timer(5), "timeout")
 	queue_free()
 
-
 func _on_Timer_timeout():
 	armed = true

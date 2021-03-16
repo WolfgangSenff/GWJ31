@@ -30,13 +30,11 @@ func _ready() -> void:
 	var rooms = $Rooms
 	for room in rooms.get_children():
 		room.connect("room_activated", self, "_on_room_activated")
-		room.connect("death", self, "explode")
-	
+		room.connect("death", self, "explode")	
 	var navigation = $CharacterNavigation
 	for character in $Characters.get_children():
 		character.navigator.navigation = navigation
 		
-
 func get_top_speed() -> float:
 	return 20.0
 

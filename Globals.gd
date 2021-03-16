@@ -14,5 +14,4 @@ func SpawnOnMain(toSpawn : PackedScene, pos : Vector2, rot : float, shouldEnable
 	scene.global_rotation = rot
 	if shouldEnablePhysics:
 		scene.call_deferred("set_physics_process", shouldEnablePhysics)
-	
 	return scene
