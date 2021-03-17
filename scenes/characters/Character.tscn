@@ -47,5 +47,4 @@ shape = SubResource( 3 )
 script = ExtResource( 3 )
 OptimizePath = true
 LookAt = false
-
 [connection signal="input_event" from="." to="." method="_on_Character_input_event"]
