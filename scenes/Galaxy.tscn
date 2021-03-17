@@ -24,7 +24,7 @@ region_rect = Rect2( 0, 0, 10240, 10240 )
 [node name="IndividualObstacles" type="Node2D" parent="."]
 
 [node name="WASP" parent="IndividualObstacles" instance=ExtResource( 1 )]
-position = Vector2( 135.273, -459.733 )
+position = Vector2( 135.273, -100 )
 enemyControlled = true
 
 [node name="Area2D" type="Area2D" parent="IndividualObstacles/WASP"]

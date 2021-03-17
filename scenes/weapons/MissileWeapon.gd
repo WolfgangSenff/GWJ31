@@ -28,7 +28,9 @@ func _physics_process(delta : float) -> void:
 	global_position += _current_speed * Vector2.RIGHT.rotated(global_rotation - deg2rad(90))
 
 func _on_area_entered(area) -> void:
-	pass
+	if area.is_in_group("weapon"):
+		set_physics_process(false)
+		explode()
 
 func explode() -> void:
 	_sprite.hide()

@@ -90,3 +90,10 @@ func _on_CharacterArea_area_exited(area: Area2D) -> void:
 		has_character = false
 		
 	character_exited()
+
+
+func _on_RoomHover_area_entered(area):
+	if area.is_in_group("weapon"):
+		print("colliding")
+		area.set_physics_process(false)
+		area.explode()

@@ -32,6 +32,5 @@ func _input_event(viewport, event, shape_idx):
 		lit = !lit
 
 func cooled():
-	print("cooled")
 	lit = !lit
 	get_node("CollisionShape2D").disabled = !lit
