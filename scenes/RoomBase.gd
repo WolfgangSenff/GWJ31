@@ -103,4 +103,3 @@ func _on_RoomHover_area_entered(area):
 			emit_signal("hit", get_parent().get_parent().integrity)
 			if get_parent().get_parent().integrity == 0:
 				emit_signal("death")
-

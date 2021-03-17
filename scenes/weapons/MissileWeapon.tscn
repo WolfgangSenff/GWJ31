@@ -50,6 +50,7 @@ texture = ExtResource( 1 )
 [node name="Trail" type="AnimatedSprite" parent="."]
 position = Vector2( -0.142378, 10.1089 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
