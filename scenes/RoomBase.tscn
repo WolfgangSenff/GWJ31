@@ -3,8 +3,6 @@
 [ext_resource path="res://scenes/RoomBase.gd" type="Script" id=1]
 [ext_resource path="res://sprites/room_activation_popup_9patch.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -23,7 +21,6 @@ visible = false
 z_index = 2
 
 [node name="RoomHover" type="Area2D" parent="."]
-
 collision_layer = 8
 collision_mask = 8
 
