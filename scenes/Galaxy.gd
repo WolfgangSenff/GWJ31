@@ -17,6 +17,7 @@ func _ready() -> void:
 		char_select_button.character = character    
 		char_select_button.connect("toggled", self, "_on_char_selected", [char_select_button])
 
+
 func _on_char_selected(is_pressed : bool, button) -> void:
 	button.character._character_selected = !button.character._character_selected
 	get_tree().call_group("Room", "disable_actions")
