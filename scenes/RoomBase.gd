@@ -16,6 +16,9 @@ var has_character = false
 var _current_character_count = 0
 var actions_enabled = true
 
+signal hit(damage)
+signal death
+
 func _ready() -> void:
 	_activation_popup.connect("about_to_show", self, "_on_about_to_show_popup")
 	_activation_popup.connect("popup_hide", self, "_on_popup_hide")
@@ -34,22 +37,22 @@ func _hide_mouse_outline() -> void:
 	_room_outline.hide()
 
 func _room_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-    if event is InputEventMouseButton and event.is_pressed():
-        if actions_enabled:
-            var other_rooms = get_tree().get_nodes_in_group("Room")
-            for room in other_rooms:
-                if room != self and room.room_open:
-                    return
-                    
-            _handle_mouse_input()
-        else:
-            var characters = get_tree().get_nodes_in_group("Character")
-            for character in characters:
-                if character._character_selected:
-                    character.navigator.navigate_to(event.global_position)
-                    get_tree().call_group("Room", "enable_actions")
-                    get_tree().set_group("CharacterSelectButton", "pressed", false)
-                    break
+	if event is InputEventMouseButton and event.is_pressed():
+		if actions_enabled:
+			var other_rooms = get_tree().get_nodes_in_group("Room")
+			for room in other_rooms:
+				if room != self and room.room_open:
+					return
+					
+			_handle_mouse_input()
+		else:
+			var characters = get_tree().get_nodes_in_group("Character")
+			for character in characters:
+				if character._character_selected:
+					character.navigator.navigate_to(event.global_position)
+					get_tree().call_group("Room", "enable_actions")
+					get_tree().set_group("CharacterSelectButton", "pressed", false)
+					break
 
 # When the room is extended, override this to handle what happens.
 #  The default for now is to show the ActivationPopup
@@ -94,6 +97,10 @@ func _on_CharacterArea_area_exited(area: Area2D) -> void:
 
 func _on_RoomHover_area_entered(area):
 	if area.is_in_group("weapon"):
-		print("colliding")
-		area.set_physics_process(false)
-		area.explode()
+		if area.armed == true:
+			area.set_physics_process(false)
+			area.explode()
+			get_parent().get_parent().integrity -= area.Damage
+			emit_signal("hit", get_parent().get_parent().integrity)
+			if get_parent().get_parent().integrity == 0:
+				emit_signal("death")

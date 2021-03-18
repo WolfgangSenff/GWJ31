@@ -7,6 +7,7 @@ export (float) var Acceleration
 
 var _current_lifetime = 0
 var _current_speed = 0
+var armed = false
 
 onready var _explosion_particles = $CPUParticles2D
 onready var _sprite = $Sprite
@@ -38,3 +39,7 @@ func explode() -> void:
 	_explosion_particles.emitting = true
 	yield(get_tree().create_timer(5), "timeout")
 	queue_free()
+
+
+func _on_Timer_timeout():
+	armed = true

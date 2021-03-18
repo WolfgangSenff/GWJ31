@@ -2,6 +2,7 @@ extends Area2D
 
 var lit = true
 var charge = 0
+var state = "cooled"
 onready var overload : Timer
 
 #this is ugly and wrong but is how I can get it working fast
@@ -28,9 +29,21 @@ func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
 	and event.is_pressed() \
-	and room.power == true:
+	and room.power == true and !get_node("CollisionShape2D").disabled:
 		lit = !lit
 
 func cooled():
 	lit = !lit
+	state = "cooled"
 	get_node("CollisionShape2D").disabled = !lit
+	
+func _process(delta):
+	if charge <= room.shieldCap * 0.5:
+		state = "cooled"
+	if charge >= room.shieldCap * 0.5:
+		state = "hot"
+	if charge >= room.shieldCap * 0.75:
+		state = "overcharge"
+		
+	if !lit:
+		charge -= 2 * delta

@@ -1,6 +1,10 @@
 extends Node2D
 
-var colors = [Color(0.0, 0.0, 0.2), Color(0.0, 0.0, 1.0)]
+var colors = {
+	"cooled" : [Color(0.0, 0.0, 0.2), Color(0.0, 0.0, 1.0)],
+	"hot" : [Color(0.2, 0.2, 0.0), Color(1.0, 1.0, 0.0)],
+	"overcharge" : [Color(0.2, 0.0, 0.0), Color(1.0, 0.0, 0.0)],
+}
 
 onready var room = get_parent()
 
@@ -8,7 +12,7 @@ func _draw():
 	var angle = -22.5
 	if room.power == true:
 		for i in self.get_children():
-			draw_circle_arc(Vector2(0, 0), 70, angle, angle + 45, colors[int(i.get_child(0).lit)])
+			draw_circle_arc(Vector2(0, 0), 70, angle, angle + 45, colors[i.get_child(0).state][int(i.get_child(0).lit)])
 			angle += 45
 
 func draw_circle_arc(center, radius, angle_from, angle_to, color):

@@ -1,5 +1,7 @@
 extends Node
 
+signal game_over
+
 func CameraZoomOut(for_time) -> void:
 	var tree = get_tree()
 	var camera = tree.get_nodes_in_group("Camera")[0]

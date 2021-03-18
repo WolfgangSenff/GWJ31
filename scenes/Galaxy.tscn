@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ships/WASP.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
@@ -9,6 +9,12 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 33.5056
 height = 66.5938
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.244781, 0.8125, 0.126953, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0745098, 0.443137, 0.52549, 1 )
 
 [node name="Galaxy" type="Node2D"]
 script = ExtResource( 3 )
@@ -25,6 +31,7 @@ region_rect = Rect2( 0, 0, 10240, 10240 )
 
 [node name="WASP" parent="IndividualObstacles" instance=ExtResource( 1 )]
 position = Vector2( 135.273, -100 )
+integrity = 30
 enemyControlled = true
 
 [node name="Area2D" type="Area2D" parent="IndividualObstacles/WASP"]
@@ -41,6 +48,10 @@ shape = SubResource( 1 )
 
 [node name="WASP" parent="PlayerHolder" instance=ExtResource( 1 )]
 position = Vector2( 131.461, 106.346 )
+integrity = 10
+
+[node name="ShieldRoom" parent="PlayerHolder/WASP/Rooms" index="4"]
+shieldCap = 40
 
 [node name="Character" parent="PlayerHolder/WASP/Characters" index="0" instance=ExtResource( 5 )]
 position = Vector2( -0.714981, -7.41789 )
@@ -91,6 +102,18 @@ mouse_filter = 2
 [node name="CharacterContainer" type="VBoxContainer" parent="GUI/MarginContainer/Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="GUI/MarginContainer/Control"]
+margin_left = 4.0
+margin_top = 119.0
+margin_right = 42.0
+margin_bottom = 133.0
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

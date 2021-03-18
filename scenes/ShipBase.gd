@@ -30,10 +30,12 @@ func _ready() -> void:
 	var rooms = $Rooms
 	for room in rooms.get_children():
 		room.connect("room_activated", self, "_on_room_activated")
+		room.connect("death", self, "explode")
 	
 	var navigation = $CharacterNavigation
 	for character in $Characters.get_children():
 		character.navigator.navigation = navigation
+		
 
 func get_top_speed() -> float:
 	return 20.0
@@ -96,3 +98,14 @@ func close():
 	for i in _finish_popup.get_children():
 		_finish_popup.remove_child(i)
 		i.queue_free()
+		
+func explode():
+	var explosion = $Explosion
+	explosion.position = global_position
+	remove_child(explosion)
+	get_tree().root.get_child(0).add_child(explosion)
+	visible = false
+	explosion.emitting = true
+	if !enemyControlled:
+		Globals.emit_signal("game_over")
+	queue_free()

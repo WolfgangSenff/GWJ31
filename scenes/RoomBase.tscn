@@ -3,9 +3,9 @@
 [ext_resource path="res://scenes/RoomBase.gd" type="Script" id=1]
 [ext_resource path="res://sprites/room_activation_popup_9patch.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-
 [sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="RoomBase" type="Node2D" groups=[
 "Room",
@@ -21,18 +21,18 @@ visible = false
 z_index = 2
 
 [node name="RoomHover" type="Area2D" parent="."]
-collision_layer = 31
-collision_mask = 31
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomHover"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CharacterArea" type="Area2D" parent="."]
 collision_layer = 256
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterArea"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
