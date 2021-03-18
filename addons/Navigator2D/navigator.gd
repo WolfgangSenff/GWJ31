@@ -18,10 +18,10 @@ var navigation
 var is_navigating
 
 func navigate_to(destination):
-	if actor and is_instance_valid(actor) and actor.position:
-		current_destination = destination
-		path = navigation.get_simple_path(actor.position, current_destination, OptimizePath)
-		is_navigating = true
+    if actor and is_instance_valid(actor) and actor.position:
+        current_destination = destination
+        path = navigation.get_simple_path(actor.position, current_destination, OptimizePath)
+        is_navigating = true
 
 func navigate(delta):
 	if actor and is_instance_valid(actor):

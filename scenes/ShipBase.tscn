@@ -13,14 +13,14 @@ script = ExtResource( 1 )
 
 [node name="ShipOverlying" type="Sprite" parent="."]
 
+[node name="CharacterNavigation" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="CharacterNavigation"]
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CameraTransform" type="RemoteTransform2D" parent="."]
 update_scale = false
-
-[node name="CharacterNavigation" type="Navigation2D" parent="."]
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="CharacterNavigation"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -4,3 +4,6 @@ extends Node2D
 # When something happens (say the obstacle is a blackhole and
 #  the ship gets too close), the obstacle is responsible for
 #  modifying the ship/damaging it/whatever
+
+export (String) var StarbaseName
+

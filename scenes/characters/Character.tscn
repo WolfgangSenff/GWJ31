@@ -170,7 +170,8 @@ shape = SubResource( 1 )
 
 [node name="Navigator2D" type="Node2D" parent="."]
 script = ExtResource( 3 )
-OptimizePath = true
+NavigationStopEpsilon = 5.0
+Speed = 20.0
 LookAt = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

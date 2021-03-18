@@ -43,6 +43,12 @@ func _on_character_moved(direction) -> void:
 			sprite.scale.x = -1
 		
 
+func _ready() -> void:
+    navigator.connect("on_destination_reached", self, "_on_destination_reached")
+
+func _on_destination_reached(nav, pos) -> void:
+    _character_selected = false
+
 func _on_Character_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	pass
 	

@@ -57,12 +57,15 @@ integrity = 10
 shieldCap = 40
 
 [node name="Character" parent="PlayerHolder/WASP/Characters" index="0" instance=ExtResource( 5 )]
-position = Vector2( -0.714981, -7.41789 )
+position = Vector2( -47.3802, -15.3307 )
 CharacterName = "Snazzy"
 
 [node name="Character2" parent="PlayerHolder/WASP/Characters" index="1" instance=ExtResource( 5 )]
-position = Vector2( -47.5831, -14.1133 )
+position = Vector2( -0.309158, -7.01207 )
 CharacterName = "Zad"
+
+[node name="CameraTransform" parent="PlayerHolder/WASP" index="4"]
+update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." groups=[
 "Camera",

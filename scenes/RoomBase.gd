@@ -50,7 +50,7 @@ func _room_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var characters = get_tree().get_nodes_in_group("Character")
 			for character in characters:
 				if character._character_selected:
-					character.navigator.navigate_to(event.global_position)
+					character.navigator.navigate_to(event.position)
 					get_tree().call_group("Room", "enable_actions")
 					get_tree().set_group("CharacterSelectButton", "pressed", false)
 					break
