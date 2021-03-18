@@ -77,6 +77,7 @@ custom_constants/margin_top = 4
 custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
