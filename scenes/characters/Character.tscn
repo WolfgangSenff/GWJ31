@@ -179,4 +179,5 @@ LookAt = false
 material = SubResource( 2 )
 frames = SubResource( 8 )
 animation = "front_walk"
+
 [connection signal="input_event" from="." to="." method="_on_Character_input_event"]

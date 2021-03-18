@@ -43,11 +43,17 @@ texture = ExtResource( 4 )
 texture = ExtResource( 5 )
 
 [node name="RoomOutline-maybe-shader" parent="." index="3"]
-z_index = 2
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="RoomHover" index="0"]
 shape = SubResource( 2 )
+
+[node name="CommsRange" type="Area2D" parent="." index="6"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CommsRange" index="0"]
+shape = SubResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer" index="0"]
 margin_left = 10.0
@@ -62,13 +68,5 @@ margin_top = 93.0
 margin_right = 196.0
 margin_bottom = 93.0
 mouse_filter = 2
-
-[node name="CommsRange" type="Area2D" parent="." index="6"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CommsRange" index="0"]
-shape = SubResource( 3 )
-
 [connection signal="area_entered" from="CommsRange" to="." method="_on_CommsRange_area_entered"]
 [connection signal="area_exited" from="CommsRange" to="." method="_on_CommsRange_area_exited"]
