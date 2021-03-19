@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/RoomBase.gd" type="Script" id=1]
 [ext_resource path="res://sprites/room_activation_popup_9patch.png" type="Texture" id=2]
+[ext_resource path="res://music_sfx/171697__nenadsimic__menu-selection-click.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -64,6 +65,11 @@ custom_constants/margin_bottom = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RoomHoverSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sfx"
+
 [connection signal="area_entered" from="RoomHover" to="." method="_on_RoomHover_area_entered"]
 [connection signal="input_event" from="RoomHover" to="." method="_room_input"]
 [connection signal="mouse_entered" from="RoomHover" to="." method="_show_mouse_outline"]

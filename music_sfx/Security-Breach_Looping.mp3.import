@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Security-Breach_Looping.mp3-2fba6b24cc5e771f2acc376d5fc4a65a.mp3str"
+
+[deps]
+
+source_file="res://music_sfx/Security-Breach_Looping.mp3"
+dest_files=[ "res://.import/Security-Breach_Looping.mp3-2fba6b24cc5e771f2acc376d5fc4a65a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

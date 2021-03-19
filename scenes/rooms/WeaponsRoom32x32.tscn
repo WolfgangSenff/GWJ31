@@ -52,4 +52,5 @@ margin_top = 83.0
 margin_right = 214.0
 margin_bottom = 103.0
 text = "Fire"
+
 [connection signal="pressed" from="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/Button" to="." method="_on_activation_button_pressed"]

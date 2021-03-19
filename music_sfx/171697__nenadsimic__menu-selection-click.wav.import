@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/171697__nenadsimic__menu-selection-click.wav-a8e02ac5054624cbc38e52b37e22e521.sample"
+
+[deps]
+
+source_file="res://music_sfx/171697__nenadsimic__menu-selection-click.wav"
+dest_files=[ "res://.import/171697__nenadsimic__menu-selection-click.wav-a8e02ac5054624cbc38e52b37e22e521.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
