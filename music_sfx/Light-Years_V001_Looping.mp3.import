@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Light-Years_V001_Looping.mp3-a200fdc8334b09cf0acb45349be57020.mp3str"
+
+[deps]
+
+source_file="res://music_sfx/Light-Years_V001_Looping.mp3"
+dest_files=[ "res://.import/Light-Years_V001_Looping.mp3-a200fdc8334b09cf0acb45349be57020.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The-Creeping-Blob_Looping.mp3-95f1a45e856f4b7b22c0478fa45b9fcb.mp3str"
+
+[deps]
+
+source_file="res://music_sfx/The-Creeping-Blob_Looping.mp3"
+dest_files=[ "res://.import/The-Creeping-Blob_Looping.mp3-95f1a45e856f4b7b22c0478fa45b9fcb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

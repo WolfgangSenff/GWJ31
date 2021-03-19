@@ -27,84 +27,84 @@ onready var _finish_popup = $CanvasLayer/ActivationPopup/MainContainer/ContentCo
 #  however it will happen.
 
 func _ready() -> void:
-	var rooms = $Rooms
-	for room in rooms.get_children():
-		room.connect("room_activated", self, "_on_room_activated")
-		room.connect("death", self, "explode")
+    var rooms = $Rooms
+    for room in rooms.get_children():
+        room.connect("room_activated", self, "_on_room_activated")
+        room.connect("death", self, "explode")
 
-	var navigation = $CharacterNavigation
-	for character in $Characters.get_children():
-		character.navigator.navigation = navigation
-		
+    var navigation = $CharacterNavigation
+    for character in $Characters.get_children():
+        character.navigator.navigation = navigation
+        
 func get_top_speed() -> float:
-	return 20.0
+    return 20.0
 
 func set_camera(camera : Camera2D) -> void:
-	$CameraTransform.remote_path = camera.get_path()
+    $CameraTransform.remote_path = camera.get_path()
 
 func _on_room_activated(room, command, data) -> void:
-	handle_room_activation(room, command, data)
+    handle_room_activation(room, command, data)
 
 func _physics_process(delta : float) -> void:
-	if currentPower > 0:
-		global_direction = lerp(global_direction, currentDirection, delta)
-		global_rotation += deg2rad(global_direction) * delta
-		global_power = lerp(global_power, currentPower, delta)
-		global_position += global_power * delta * Vector2.UP.rotated(global_rotation)
+    if currentPower > 0:
+        global_direction = lerp(global_direction, currentDirection, delta)
+        global_rotation += deg2rad(global_direction) * delta
+        global_power = lerp(global_power, currentPower, delta)
+        global_position += global_power * delta * Vector2.UP.rotated(global_rotation)
 
 func handle_room_activation(room, command, data) -> void:
-	# This handles the brunt of the work; when a room is
-	#  activated, this function will read the command,
-	#  interpret it, and apply the values in data
-	#  accordingly.
-	
-	match command:
-		"target-enemy":
-			var scene = Globals.SpawnOnMain(data["scene"], data["fire_position"], data["fire_rotation"], true)
-		"trade":
-			update_cargo(data["trading"])
-		"connect":
-			pass
-		"target-self":
-			var action = data["action"]
-			match action:
-				"update-power":
-					currentPower = data["power"]
-				"update-steering":
-					currentDirection = data["steering"]
-			pass
-	
+    # This handles the brunt of the work; when a room is
+    #  activated, this function will read the command,
+    #  interpret it, and apply the values in data
+    #  accordingly.
+    
+    match command:
+        "target-enemy":
+            var scene = Globals.SpawnOnMain(data["scene"], data["fire_position"], data["fire_rotation"], true)
+        "trade":
+            update_cargo(data["trading"])
+        "connect":
+            pass
+        "target-self":
+            var action = data["action"]
+            match action:
+                "update-power":
+                    currentPower = data["power"]
+                "update-steering":
+                    currentDirection = data["steering"]
+            pass
+    
 func handle_obstacle(obstacle, command, data) -> void:
-	# Same as above, but for obstacles. This is called
-	#  from the galaxy directly
-	pass
-	
+    # Same as above, but for obstacles. This is called
+    #  from the galaxy directly
+    pass
+    
 func update_cargo(goodsTraded):
-	var earn = Label.new()
-	earn.text = "you got " + str(goodsTraded.give_quantity) + " " + goodsTraded.give
-	_finish_popup.add_child(earn)
-	var expend = Label.new()
-	expend.text = "for " + str(goodsTraded.take_quantity) + " " + goodsTraded.take
-	_finish_popup.add_child(expend)
-	var close = Button.new()
-	close.text = "close"
-	close.connect("pressed", self, "close")
-	_finish_popup.add_child(close)
-	$CanvasLayer/ActivationPopup.popup_centered_ratio(.8)
-	
+    var earn = Label.new()
+    earn.text = "you got " + str(goodsTraded.give_quantity) + " " + goodsTraded.give
+    _finish_popup.add_child(earn)
+    var expend = Label.new()
+    expend.text = "for " + str(goodsTraded.take_quantity) + " " + goodsTraded.take
+    _finish_popup.add_child(expend)
+    var close = Button.new()
+    close.text = "close"
+    close.connect("pressed", self, "close")
+    _finish_popup.add_child(close)
+    $CanvasLayer/ActivationPopup.popup_centered_ratio(.8)
+    
 func close():
-	$CanvasLayer/ActivationPopup.hide()
-	for i in _finish_popup.get_children():
-		_finish_popup.remove_child(i)
-		i.queue_free()
-		
+    $CanvasLayer/ActivationPopup.hide()
+    for i in _finish_popup.get_children():
+        _finish_popup.remove_child(i)
+        i.queue_free()
+        
 func explode():
-	var explosion = $Explosion
-	explosion.position = global_position
-	remove_child(explosion)
-	get_tree().root.get_node("Galaxy").add_child(explosion)
-	visible = false
-	explosion.emitting = true
-	if !enemyControlled:
-		Globals.emit_signal("game_over")
-	queue_free()
+    var explosion = $Explosion
+    explosion.position = global_position
+    remove_child(explosion)
+    get_tree().root.get_node("Galaxy").add_child(explosion)
+    visible = false
+    explosion.emitting = true
+    if !enemyControlled:
+        Globals.emit_signal("game_over")
+    queue_free()

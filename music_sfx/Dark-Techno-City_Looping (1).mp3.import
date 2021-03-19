@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dark-Techno-City_Looping (1).mp3-6ab0c9aa7b0877cb14ccb6938ae96ec4.mp3str"
+
+[deps]
+
+source_file="res://music_sfx/Dark-Techno-City_Looping (1).mp3"
+dest_files=[ "res://.import/Dark-Techno-City_Looping (1).mp3-6ab0c9aa7b0877cb14ccb6938ae96ec4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
