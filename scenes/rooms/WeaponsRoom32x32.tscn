@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/gui/CircularTimedProgress.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 16.0042, 16.553 )
 
 [node name="WeaponsRoom" instance=ExtResource( 2 )]
 script = ExtResource( 5 )
@@ -52,5 +52,4 @@ margin_top = 83.0
 margin_right = 214.0
 margin_bottom = 103.0
 text = "Fire"
-
 [connection signal="pressed" from="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/Button" to="." method="_on_activation_button_pressed"]
