@@ -100,7 +100,7 @@ func explode():
 	var explosion = $Explosion
 	explosion.position = global_position
 	remove_child(explosion)
-	get_tree().root.get_child(0).add_child(explosion)
+	get_tree().root.get_node("Galaxy").add_child(explosion)
 	visible = false
 	explosion.emitting = true
 	if !enemyControlled:
