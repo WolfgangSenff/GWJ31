@@ -94,7 +94,6 @@ func _on_CharacterArea_area_exited(area: Area2D) -> void:
 		
 	character_exited()
 
-
 func _on_RoomHover_area_entered(area):
 	if area.is_in_group("weapon"):
 		if area.armed == true:

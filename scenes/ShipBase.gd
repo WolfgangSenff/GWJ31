@@ -31,12 +31,11 @@ func _ready() -> void:
 	for room in rooms.get_children():
 		room.connect("room_activated", self, "_on_room_activated")
 		room.connect("death", self, "explode")
-	
+
 	var navigation = $CharacterNavigation
 	for character in $Characters.get_children():
 		character.navigator.navigation = navigation
 		
-
 func get_top_speed() -> float:
 	return 20.0
 
@@ -103,7 +102,7 @@ func explode():
 	var explosion = $Explosion
 	explosion.position = global_position
 	remove_child(explosion)
-	get_tree().root.get_child(0).add_child(explosion)
+	get_tree().root.get_node("Galaxy").add_child(explosion)
 	visible = false
 	explosion.emitting = true
 	if !enemyControlled:
