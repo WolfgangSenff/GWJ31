@@ -17,7 +17,11 @@ func _on_Button_pressed():
 	if power == true:
 		button.text = "Turn On"
 		power = false
+		for i in $Shield.get_children():
+			i.get_node("Area2D").lit = power
 	else:
 		button.text = "Turn Off"
 		power = true
+		for i in $Shield.get_children():
+			i.get_node("Area2D").lit = power
 

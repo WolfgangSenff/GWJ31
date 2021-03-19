@@ -22,6 +22,11 @@ func _ready() -> void:
 	for room in player.get_node("Rooms").get_children():
 		room.connect("hit", self, "update_life")
 
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		$GUI/PauseMenu.visible = true
+		get_tree().paused = true
+
 func _on_char_selected(is_pressed : bool, button) -> void:
 	button.character._character_selected = is_pressed
 	print(is_pressed)
@@ -44,5 +49,4 @@ func update_life(new_life):
 	$GUI/MarginContainer/Control/ProgressBar.value = new_life
 	
 func death_screen():
-	print("quiting")
-	get_tree().quit()
+	$GUI/DeathMenu.visible = true

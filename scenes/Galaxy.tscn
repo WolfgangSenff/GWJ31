@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/ships/WASP.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Galaxy.gd" type="Script" id=3]
 [ext_resource path="res://sprites/background_temporary.png" type="Texture" id=4]
 [ext_resource path="res://scenes/characters/Character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/gui/DeathMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 33.5056
@@ -17,6 +19,7 @@ bg_color = Color( 0.244781, 0.8125, 0.126953, 1 )
 bg_color = Color( 0.0745098, 0.443137, 0.52549, 1 )
 
 [node name="Galaxy" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 3 )
 
 [node name="StarBackground" type="Node" parent="."]
@@ -78,6 +81,7 @@ position = Vector2( 0, -64 )
 [node name="ZoomInPosition" type="Position2D" parent="Camera2D"]
 
 [node name="GUI" type="CanvasLayer" parent="."]
+pause_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI"]
 anchor_right = 1.0
@@ -117,5 +121,11 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource( 6 )]
+visible = false
+
+[node name="DeathMenu" parent="GUI" instance=ExtResource( 7 )]
+visible = false
 
 [editable path="PlayerHolder/WASP"]
