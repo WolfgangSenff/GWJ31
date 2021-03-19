@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -74,8 +73,10 @@ ui_accept={
 
 [layer_names]
 
+2d_physics/layer_1="Ship"
 2d_physics/layer_8="Character"
 2d_physics/layer_9="CharacterArea"
+2d_physics/layer_12="Starbase"
 
 [physics]
 

@@ -31,25 +31,25 @@ func _input(event):
 		get_tree().paused = true
 
 func _on_char_selected(is_pressed : bool, button) -> void:
-	button.character._character_selected = is_pressed
-	print(is_pressed)
-	
-	var chars = get_tree().get_nodes_in_group("Character")
-	for character in chars:
-		if button.character != character:
-			character._character_selected = false
-			
-	if is_pressed:
-		get_tree().call_group("Room", "disable_actions")
-	else:
-		get_tree().call_group("Room", "enable_actions")
+    button.character._character_selected = is_pressed
+    print(is_pressed)
+    
+    var chars = get_tree().get_nodes_in_group("Character")
+    for character in chars:
+        if button.character != character:
+            character._character_selected = false
+            
+    if is_pressed:
+        get_tree().call_group("Room", "disable_actions")
+    else:
+        get_tree().call_group("Room", "enable_actions")
 
 func enter_battle() -> void:
-	pass
+    pass
 
 func update_life(new_life):
-	player.integrity = new_life
-	$GUI/MarginContainer/Control/ProgressBar.value = new_life
-	
+    player.integrity = new_life
+    $GUI/MarginContainer/Control/ProgressBar.value = new_life
+    
 func death_screen():
 	$GUI/DeathMenu.visible = true

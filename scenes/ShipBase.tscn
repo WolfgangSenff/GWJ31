@@ -22,6 +22,10 @@ script = ExtResource( 1 )
 [node name="CameraTransform" type="RemoteTransform2D" parent="."]
 update_scale = false
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ActivationPopup" type="Popup" parent="CanvasLayer"]

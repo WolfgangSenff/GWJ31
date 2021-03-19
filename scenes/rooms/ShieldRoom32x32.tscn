@@ -150,4 +150,5 @@ margin_top = 83.0
 margin_right = 228.0
 margin_bottom = 103.0
 text = "Turn Off"
+
 [connection signal="pressed" from="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/Button" to="." method="_on_Button_pressed"]

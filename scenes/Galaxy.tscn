@@ -64,9 +64,6 @@ CharacterName = "Snazzy"
 position = Vector2( -0.309158, -7.01207 )
 CharacterName = "Zad"
 
-[node name="CameraTransform" parent="PlayerHolder/WASP" index="4"]
-update_scale = false
-
 [node name="Camera2D" type="Camera2D" parent="." groups=[
 "Camera",
 ]]
