@@ -12,7 +12,7 @@ func _draw():
     var angle = -22.5
     if room.power == true:
         for i in self.get_children():
-            draw_circle_arc(Vector2(0, 0), 70, angle, angle + 45, colors[i.get_child(0).state][int(i.get_child(0).lit)])
+            draw_circle_arc(Vector2(0, 0), 90, angle, angle + 45, colors[i.get_child(0).state][int(i.get_child(0).lit)])
             angle += 45
 
 func draw_circle_arc(center, radius, angle_from, angle_to, color):

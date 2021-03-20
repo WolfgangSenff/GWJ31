@@ -149,10 +149,10 @@ margin_right = 403.0
 margin_bottom = 197.0
 
 [node name="Button" type="Button" parent="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer" index="0"]
-margin_left = 165.0
-margin_top = 83.0
-margin_right = 228.0
-margin_bottom = 103.0
+margin_left = 154.0
+margin_top = 80.0
+margin_right = 238.0
+margin_bottom = 106.0
 text = "Turn Off"
 
 [connection signal="pressed" from="CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/Button" to="." method="_on_Button_pressed"]
