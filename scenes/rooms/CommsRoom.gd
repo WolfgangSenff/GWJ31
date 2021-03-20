@@ -41,11 +41,8 @@ func update_sensor(newRange):
     $CommsRange/CollisionShape2D.shape.radius = sensorRange
     
 func _handle_mouse_input():
-    if openComms == true:
-        ._handle_mouse_input()
-        parse_message(_message_owner.messageSend)
+    pass
         
-
 func quit():
     _activation_popup.hide()
     for i in _comms_dialog.get_children():

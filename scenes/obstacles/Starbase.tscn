@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/ObstacleBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/starbase_basic.png" type="Texture" id=2]
 [ext_resource path="res://sprites/room_activation_popup_9patch.png" type="Texture" id=3]
+[ext_resource path="res://sprites/characters/starbase_salesman.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.2121, 12.274 )
@@ -22,9 +23,13 @@ shape = SubResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 
 [node name="Popup" type="Popup" parent="CanvasLayer" index="0"]
+pause_mode = 2
 visible = true
-margin_right = 207.0
-margin_bottom = 180.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Popup" index="0"]
 anchor_right = 1.0
@@ -34,3 +39,54 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Popup/NinePatchRect" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="TradeControl" type="Control" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer" index="0"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 246.0
+margin_bottom = 134.0
+
+[node name="Merchant" type="Control" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer/TradeControl" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer/TradeControl/Merchant" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -33.0
+margin_right = 33.0
+margin_bottom = 65.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer/TradeControl" index="1"]
+margin_left = 68.8168
+margin_top = 68.426
+margin_right = 163.817
+margin_bottom = 116.426
+text = "Here, have a free repair. Heh heh heh."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="popup_hide" from="CanvasLayer/Popup" to="." method="_on_Popup_popup_hide"]

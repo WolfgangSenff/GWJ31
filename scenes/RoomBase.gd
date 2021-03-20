@@ -31,9 +31,9 @@ func _on_popup_hide() -> void:
     room_open = false
 
 func _show_mouse_outline() -> void:
-	_room_outline.show()
-	room_hover_sfx.play(0)
-	
+    _room_outline.show()
+    room_hover_sfx.play(0)
+    
 func _hide_mouse_outline() -> void:
     _room_outline.hide()
 
@@ -58,10 +58,11 @@ func _room_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 # When the room is extended, override this to handle what happens.
 #  The default for now is to show the ActivationPopup
 func _handle_mouse_input():
-    _activation_popup.popup_centered_ratio(.8)
-    # Chose .8 for no real reason
+    _activation_popup.popup_centered_ratio(.6)
+    # Chose .6 for no real reason
     
-
+func close_popup() -> void:
+    _activation_popup.hide()
 # Emit room_activated when this room actually executes its command,
 #  so like the Helm would emit the signal when the player changes
 #  the direction the ship is going
