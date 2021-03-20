@@ -2,7 +2,6 @@ extends Node2D
 
 const CharacterSelectScene = preload("res://scenes/gui/CharacterSelectButton.tscn")
 const CharacterSelectButtonGroup = preload("res://resources/CharacterSelectButtonGroup.tres")
-onready var engaged_obstacle = $IndividualObstacles/WASP
 onready var player = $PlayerHolder/WASP
 
 func _ready() -> void:

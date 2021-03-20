@@ -6,8 +6,10 @@ extends Node2D
 #  modifying the ship/damaging it/whatever
 
 export (String) var StarbaseName
+export (float) var OccurrenceProbability
 
-onready var _trader_popup = $CanvasLayer/Popup
+
+onready var _trader_popup = $CanvasLayer/Control/Popup
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
     get_tree().call_group("Playable", "close_all_room_popups")
