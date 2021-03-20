@@ -68,5 +68,6 @@ margin_top = 93.0
 margin_right = 196.0
 margin_bottom = 93.0
 mouse_filter = 2
+
 [connection signal="area_entered" from="CommsRange" to="." method="_on_CommsRange_area_entered"]
 [connection signal="area_exited" from="CommsRange" to="." method="_on_CommsRange_area_exited"]

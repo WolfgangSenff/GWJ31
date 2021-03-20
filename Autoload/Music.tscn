@@ -7,6 +7,7 @@
 [ext_resource path="res://music_sfx/Dark-Techno-City_Looping (1).mp3" type="AudioStream" id=5]
 
 [node name="Music" type="Node"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]

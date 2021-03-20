@@ -7,15 +7,12 @@
 [ext_resource path="res://scenes/characters/Character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/gui/DeathMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/obstacles/Starbase.tscn" type="PackedScene" id=8]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 33.5056
-height = 66.5938
-
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.244781, 0.8125, 0.126953, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0745098, 0.443137, 0.52549, 1 )
 
 [node name="Galaxy" type="Node2D"]
@@ -41,13 +38,10 @@ enemyControlled = true
 collision_layer = 4
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IndividualObstacles/WASP/Area2D"]
-rotation = 1.5708
-shape = SubResource( 1 )
+[node name="Starbase" parent="IndividualObstacles" instance=ExtResource( 8 )]
+position = Vector2( 147.682, -324.791 )
 
 [node name="PlayerHolder" type="Node2D" parent="."]
-
-[node name="MakeShipSelectorInFuture" type="Node" parent="PlayerHolder"]
 
 [node name="WASP" parent="PlayerHolder" instance=ExtResource( 1 )]
 position = Vector2( 131.461, 106.346 )
@@ -57,11 +51,11 @@ integrity = 10
 shieldCap = 40
 
 [node name="Character" parent="PlayerHolder/WASP/Characters" index="0" instance=ExtResource( 5 )]
-position = Vector2( -0.714981, -7.41789 )
+position = Vector2( -47.3802, -15.3307 )
 CharacterName = "Snazzy"
 
 [node name="Character2" parent="PlayerHolder/WASP/Characters" index="1" instance=ExtResource( 5 )]
-position = Vector2( -47.5831, -14.1133 )
+position = Vector2( -0.309158, -7.01207 )
 CharacterName = "Zad"
 
 [node name="Camera2D" type="Camera2D" parent="." groups=[
@@ -115,8 +109,8 @@ margin_left = 4.0
 margin_top = 119.0
 margin_right = 42.0
 margin_bottom = 133.0
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -128,4 +122,5 @@ visible = false
 [node name="DeathMenu" parent="GUI" instance=ExtResource( 7 )]
 visible = false
 
+[editable path="IndividualObstacles/WASP"]
 [editable path="PlayerHolder/WASP"]
