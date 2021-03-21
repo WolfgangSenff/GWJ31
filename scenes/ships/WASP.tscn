@@ -21,15 +21,16 @@ extents = Vector2( 69.0767, 40.9342 )
 [node name="WASP" groups=[
 "Playable",
 ] instance=ExtResource( 2 )]
-shield_x = -46
+integrity = 50
 
 [node name="WeaponsRoom" parent="Rooms" index="0" instance=ExtResource( 3 )]
 position = Vector2( -47.5, -15.5 )
+Damage = 15
 Projectile = ExtResource( 5 )
 
 [node name="CommsRoom" parent="Rooms" index="1" instance=ExtResource( 4 )]
 position = Vector2( -40, 16 )
-sensorRange = 100
+sensorRange = 300
 
 [node name="EngineRoom" parent="Rooms" index="2" instance=ExtResource( 7 )]
 position = Vector2( 40.0516, 14.884 )
@@ -40,10 +41,9 @@ RoomId = "Helm"
 
 [node name="ShieldRoom" parent="Rooms" index="4" instance=ExtResource( 6 )]
 position = Vector2( 47.5, -15.5 )
-
 RoomId = "Shield"
 shield_pos = Vector2( -47.5, 20 )
-shieldCap = 10
+shieldCap = 40
 
 [node name="ShipUnderlying" parent="." index="1"]
 texture = ExtResource( 1 )
