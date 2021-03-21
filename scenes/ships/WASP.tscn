@@ -36,9 +36,11 @@ position = Vector2( 40.0516, 14.884 )
 
 [node name="HelmRoom" parent="Rooms" index="3" instance=ExtResource( 8 )]
 position = Vector2( 0, -6.76547 )
+RoomId = "Helm"
 
 [node name="ShieldRoom" parent="Rooms" index="4" instance=ExtResource( 6 )]
 position = Vector2( 47.5, -15.5 )
+RoomId = "Shield"
 shield_pos = Vector2( -47.5, 0 )
 shieldCap = 10
 

@@ -8,8 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "FolderListResource",
+"language": "GDScript",
+"path": "res://resources/FolderListResource.gd"
+}, {
+"base": "Resource",
+"class": "ObstacleResource",
+"language": "GDScript",
+"path": "res://resources/ObstacleResource.gd"
+} ]
 _global_script_class_icons={
+"FolderListResource": "",
+"ObstacleResource": ""
 }
 
 [application]
@@ -22,6 +34,11 @@ config/icon="res://icon.png"
 
 Globals="*res://Globals.gd"
 Music="*res://Autoload/Music.tscn"
+PlanetTextures="*res://Autoload/PlanetTextures.gd"
+
+[debug]
+
+gdscript/warnings/enable=false
 
 [display]
 
@@ -74,6 +91,7 @@ ui_accept={
 [layer_names]
 
 2d_physics/layer_1="Ship"
+2d_physics/layer_3="Shields"
 2d_physics/layer_8="Character"
 2d_physics/layer_9="CharacterArea"
 2d_physics/layer_12="Starbase"

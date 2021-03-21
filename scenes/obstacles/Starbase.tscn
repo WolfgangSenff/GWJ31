@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ObstacleBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/starbase_basic.png" type="Texture" id=2]
 [ext_resource path="res://sprites/room_activation_popup_9patch.png" type="Texture" id=3]
 [ext_resource path="res://sprites/characters/starbase_salesman.png" type="Texture" id=4]
+[ext_resource path="res://Kenney Mini Square.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/obstacles/Starbase.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.2121, 12.274 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_size = 1
+extra_spacing_top = -2
+font_data = ExtResource( 5 )
+
 [node name="Starbase" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
 
 [node name="ObstacleUnderlying" parent="." index="1"]
 texture = ExtResource( 2 )
@@ -20,9 +29,16 @@ collision_layer = 2048
 position = Vector2( -0.24498, 22.4146 )
 shape = SubResource( 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
+[node name="CanvasLayer" parent="." index="3"]
+layer = 3
 
-[node name="Popup" type="Popup" parent="CanvasLayer" index="0"]
+[node name="Control" parent="CanvasLayer" index="0"]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Popup" type="Popup" parent="CanvasLayer/Control" index="0"]
 pause_mode = 2
 visible = true
 anchor_right = 1.0
@@ -31,7 +47,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Popup" index="0"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/Popup" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 3 )
@@ -43,7 +59,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Popup/NinePatchRect" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Popup/NinePatchRect" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 10
@@ -51,13 +67,13 @@ custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="TradeControl" type="Control" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer" index="0"]
+[node name="TradeControl" type="Control" parent="CanvasLayer/Control/Popup/NinePatchRect/MarginContainer" index="0"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 246.0
-margin_bottom = 134.0
+margin_right = 30.0
+margin_bottom = 30.0
 
-[node name="Merchant" type="Control" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer/TradeControl" index="0"]
+[node name="Merchant" type="Control" parent="CanvasLayer/Control/Popup/NinePatchRect/MarginContainer/TradeControl" index="0"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -20.0
@@ -67,7 +83,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer/TradeControl/Merchant" index="0"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Popup/NinePatchRect/MarginContainer/TradeControl/Merchant" index="0"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -33.0
@@ -77,11 +93,12 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/Popup/NinePatchRect/MarginContainer/TradeControl" index="1"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Popup/NinePatchRect/MarginContainer/TradeControl" index="1"]
 margin_left = 68.8168
 margin_top = 68.426
 margin_right = 163.817
 margin_bottom = 116.426
+custom_fonts/font = SubResource( 2 )
 text = "Here, have a free repair. Heh heh heh."
 autowrap = true
 __meta__ = {
@@ -89,4 +106,4 @@ __meta__ = {
 }
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="popup_hide" from="CanvasLayer/Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="popup_hide" from="CanvasLayer/Control/Popup" to="." method="_on_Popup_popup_hide"]

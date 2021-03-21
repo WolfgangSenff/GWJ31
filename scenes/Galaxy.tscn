@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/ships/WASP.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://scenes/characters/Character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/gui/DeathMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/obstacles/Starbase.tscn" type="PackedScene" id=8]
+[ext_resource path="res://oregano_theme.tres" type="Theme" id=9]
+[ext_resource path="res://scenes/random_generation/RandomObstacleGenerator.gd" type="Script" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.244781, 0.8125, 0.126953, 1 )
@@ -28,18 +29,8 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 10240, 10240 )
 
 [node name="IndividualObstacles" type="Node2D" parent="."]
-
-[node name="WASP" parent="IndividualObstacles" instance=ExtResource( 1 )]
-position = Vector2( 135.273, -100 )
-integrity = 30
-enemyControlled = true
-
-[node name="Area2D" type="Area2D" parent="IndividualObstacles/WASP"]
-collision_layer = 4
-collision_mask = 8
-
-[node name="Starbase" parent="IndividualObstacles" instance=ExtResource( 8 )]
-position = Vector2( 147.682, -324.791 )
+script = ExtResource( 10 )
+TotalObstacles = 100
 
 [node name="PlayerHolder" type="Node2D" parent="."]
 
@@ -58,12 +49,16 @@ CharacterName = "Snazzy"
 position = Vector2( -0.309158, -7.01207 )
 CharacterName = "Zad"
 
+[node name="ActivationPopup" parent="PlayerHolder/WASP/CanvasLayer" index="0"]
+theme = null
+
 [node name="Camera2D" type="Camera2D" parent="." groups=[
 "Camera",
 ]]
 position = Vector2( 127.34, 70.6357 )
 rotating = true
 current = true
+zoom = Vector2( 1.5, 1.5 )
 smoothing_enabled = true
 script = ExtResource( 2 )
 
@@ -81,6 +76,7 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+theme = ExtResource( 9 )
 custom_constants/margin_right = 4
 custom_constants/margin_top = 4
 custom_constants/margin_left = 4
@@ -116,11 +112,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ZoomButton" type="Button" parent="GUI/MarginContainer/Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -54.0
+margin_bottom = 26.0
+text = "ZOOM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PauseMenu" parent="GUI" instance=ExtResource( 6 )]
 visible = false
 
 [node name="DeathMenu" parent="GUI" instance=ExtResource( 7 )]
 visible = false
 
-[editable path="IndividualObstacles/WASP"]
+[connection signal="pressed" from="GUI/MarginContainer/Control/ZoomButton" to="." method="_on_ZoomButton_pressed"]
+
 [editable path="PlayerHolder/WASP"]

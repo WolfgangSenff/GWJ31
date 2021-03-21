@@ -2,7 +2,6 @@ extends Node2D
 
 const CharacterSelectScene = preload("res://scenes/gui/CharacterSelectButton.tscn")
 const CharacterSelectButtonGroup = preload("res://resources/CharacterSelectButtonGroup.tres")
-onready var engaged_obstacle = $IndividualObstacles/WASP
 onready var player = $PlayerHolder/WASP
 
 func _ready() -> void:
@@ -26,6 +25,7 @@ func _ready() -> void:
     for room in player.get_node("Rooms").get_children():
         room.connect("hit", self, "update_life")
 
+    
 func _input(event):
     if event.is_action_pressed("ui_cancel"):
         $GUI/PauseMenu.visible = true
@@ -55,6 +55,8 @@ func update_life(new_life):
 func on_ship_repaired():
     $GUI/MarginContainer/Control/ProgressBar.value = player.integrity
     
-
 func death_screen():
     $GUI/DeathMenu.visible = true
+
+func _on_ZoomButton_pressed() -> void:
+    Globals.CameraZoomOut(10)

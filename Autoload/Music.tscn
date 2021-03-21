@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://music_sfx/The-Creeping-Blob_Looping.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Autoload/Music.gd" type="Script" id=2]
-[ext_resource path="res://music_sfx/Security-Breach_Looping.mp3" type="AudioStream" id=3]
 [ext_resource path="res://music_sfx/Light-Years_V001_Looping.mp3" type="AudioStream" id=4]
 [ext_resource path="res://music_sfx/Dark-Techno-City_Looping (1).mp3" type="AudioStream" id=5]
 
@@ -18,9 +17,6 @@ autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RandomSongs"]
 stream = ExtResource( 4 )
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="RandomSongs"]
-stream = ExtResource( 3 )
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="RandomSongs"]
 stream = ExtResource( 1 )
