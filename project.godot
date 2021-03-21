@@ -20,8 +20,12 @@ _global_script_classes=[ {
 "path": "res://resources/ObstacleResource.gd"
 } ]
 _global_script_class_icons={
+<<<<<<< HEAD
 "FolderListResource": "",
 "ObstacleResource": ""
+=======
+
+>>>>>>> bdd5f13c582d76f941b60c1a501136cdf6df242f
 }
 
 [application]
@@ -102,6 +106,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
 quality/dynamic_fonts/use_oversampling=false
