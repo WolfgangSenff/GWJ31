@@ -1,6 +1,6 @@
 extends Camera2D
 
-const ZoomAmount = Vector2(4, 4)
+const ZoomAmount = Vector2(6, 6)
 const ZoomSpeed = .3
 
 onready var tween = $Tween

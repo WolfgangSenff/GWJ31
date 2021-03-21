@@ -6,17 +6,18 @@ export (Vector2) var MaxSizeBetweenObstacles
 
 var all_obstacle_resources = [
     preload("res://obstacle_resources/PlanetObstacle.tres"),
-    preload("res://obstacle_resources/StarbaseObstacle.tres")
+    preload("res://obstacle_resources/StarbaseObstacle.tres"),
+    preload("res://obstacle_resources/AsteroidObstacle.tres"),
+    preload("res://obstacle_resources/EnemyShipObstacle.tres"),
+    preload("res://obstacle_resources/CometObstacle.tres")
    ]
 
 var all_obstacle_probabilities = [
-    .1,
-    .01
-   ]
-
-var all_obstacle_sizes = [
-    128,
-    80
+    10,
+    3,
+    5,
+    5,
+    4
    ]
 
 const RandomRoomScene = preload("res://scenes/random_generation/ObstacleRoom.tscn")
@@ -31,19 +32,12 @@ func generate():
     var current_obstacle_index = 0    
     for obst in TotalObstacles:
         var room = RandomRoomScene.instance()
-        room.set_room_size(80 + randi() % 128)
-        add_child(room)
+        room.set_room_size(120 + randi() % 300)
+        var random_cull = randf()
+        if random_cull > .6:
+            add_child(room)
         current_obstacle_index += 1
         
-#        var current_percentage_total = 0
-#        var rand_chance = randf()
-#        for obstacle_resource in all_obstacle_resources.keys():
-#            current_percentage_total += all_obstacle_resources[obstacle_resource]
-#            if current_percentage_total < rand_chance:
-#                var random_room = RandomRoomScene.instance()
-#                random_room.ObstacleRes = obstacle_resource
-#                add_child(random_room)
-    
     yield(get_tree().create_timer(1.2), "timeout")
     for child in get_children():
         var random_percent = rand_range(0, total_obstacle_percentage)
