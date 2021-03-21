@@ -6,6 +6,7 @@
 [ext_resource path="res://oregano_theme.tres" type="Theme" id=4]
 
 [node name="ShipBase" type="Node2D"]
+z_index = 3
 script = ExtResource( 1 )
 
 [node name="Rooms" type="Node2D" parent="."]
@@ -24,6 +25,7 @@ script = ExtResource( 1 )
 update_scale = false
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 

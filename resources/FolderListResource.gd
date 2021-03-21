@@ -15,8 +15,8 @@ func load_all_resources() -> void:
         folder.list_dir_begin()
         
         var file_name = folder.get_next()
-        while file_name != "" and not file_name.ends_with(".import"):
-            if not folder.current_is_dir():
+        while file_name != "":
+            if not folder.current_is_dir() and file_name.ends_with(".png"):
                 all_resources.push_back(load(FolderPath.plus_file(file_name)))
             
             file_name = folder.get_next()
