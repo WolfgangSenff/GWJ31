@@ -2,7 +2,6 @@ extends Node2D
 
 const CharacterSelectScene = preload("res://scenes/gui/CharacterSelectButton.tscn")
 const CharacterSelectButtonGroup = preload("res://resources/CharacterSelectButtonGroup.tres")
-onready var engaged_obstacle = $IndividualObstacles/WASP
 onready var player
 
 func _ready() -> void:
@@ -75,6 +74,3 @@ func death_screen():
 
 func _on_ZoomButton_pressed() -> void:
     Globals.CameraZoomOut(10)
-
-func death_screen():
-    $GUI/DeathMenu.visible = true
