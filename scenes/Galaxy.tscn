@@ -109,10 +109,6 @@ visible = false
 [node name="DeathMenu" parent="GUI" instance=ExtResource( 7 )]
 visible = false
 
-<<<<<<< HEAD
 [connection signal="pressed" from="GUI/MarginContainer/Control/ZoomButton" to="." method="_on_ZoomButton_pressed"]
 
-[editable path="PlayerHolder/WASP"]
-=======
 [editable path="IndividualObstacles/WASP"]
->>>>>>> added ship selector and fixed some general bugs

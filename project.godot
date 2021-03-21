@@ -20,8 +20,12 @@ _global_script_classes=[ {
 "path": "res://resources/ObstacleResource.gd"
 } ]
 _global_script_class_icons={
+<<<<<<< HEAD
 "FolderListResource": "",
 "ObstacleResource": ""
+=======
+
+>>>>>>> bdd5f13c582d76f941b60c1a501136cdf6df242f
 }
 
 [application]
