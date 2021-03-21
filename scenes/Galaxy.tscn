@@ -1,19 +1,30 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://scenes/ships/WASP.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/spice_meter_value.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Galaxy.gd" type="Script" id=3]
 [ext_resource path="res://sprites/background_temporary.png" type="Texture" id=4]
+[ext_resource path="res://resources/button_pressed_style.tres" type="StyleBox" id=5]
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/gui/DeathMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/spice_meter_under.png" type="Texture" id=8]
 [ext_resource path="res://oregano_theme.tres" type="Theme" id=9]
 [ext_resource path="res://scenes/random_generation/RandomObstacleGenerator.gd" type="Script" id=10]
+[ext_resource path="res://resources/button_hover_style.tres" type="StyleBox" id=11]
+[ext_resource path="res://resources/button_normal_style.tres" type="StyleBox" id=12]
+[ext_resource path="res://Kenney Mini Square.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://scenes/gui/SpiceMeter.gd" type="Script" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.244781, 0.8125, 0.126953, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0745098, 0.443137, 0.52549, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
 
 [node name="Galaxy" type="Node2D"]
 pause_mode = 1
@@ -63,7 +74,6 @@ custom_constants/margin_top = 4
 custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -98,10 +108,54 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -54.0
 margin_bottom = 26.0
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 12 )
 text = "ZOOM"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SpiceMeter" type="TextureProgress" parent="GUI/MarginContainer/Control"]
+anchor_left = 0.799
+anchor_top = 0.853
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.152008
+margin_top = -0.00800323
+max_value = 500.0
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 1 )
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/MarginContainer/Control/SpiceMeter"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -9.78152
+margin_right = 20.0
+margin_bottom = 10.2185
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0 )
+text = "0%"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="GUI/MarginContainer/Control/SpiceMeter"]
+wait_time = 0.5
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource( 6 )]
 visible = false
@@ -110,5 +164,3 @@ visible = false
 visible = false
 
 [connection signal="pressed" from="GUI/MarginContainer/Control/ZoomButton" to="." method="_on_ZoomButton_pressed"]
-
-[editable path="IndividualObstacles/WASP"]

@@ -14,10 +14,9 @@ onready var _sprite = $Sprite
 onready var _trail = $Trail
 
 func _ready() -> void:
-	set_physics_process(false)
-	connect("area_entered", self, "_on_area_entered", [], CONNECT_ONESHOT)
-	
-
+    set_physics_process(false)
+    connect("area_entered", self, "_on_area_entered", [], CONNECT_ONESHOT)
+    
 func _physics_process(delta : float) -> void:
 	_current_lifetime += delta
 	if _current_lifetime > LifeTime:

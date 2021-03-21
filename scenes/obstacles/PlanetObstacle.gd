@@ -1,7 +1,5 @@
 extends "res://scenes/ObstacleBase.gd"
 
-onready var sprite = $ObstacleUnderlying
-
 const MinMovementSpeed = 50
 const MaxMovementSpeed = 300
 

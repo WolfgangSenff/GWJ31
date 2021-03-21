@@ -1,8 +1,14 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://Kenney Mini Square.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/button_pressed_style.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/button_hover_style.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/button_normal_style.tres" type="StyleBox" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -11,18 +17,26 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 2
+font_data = ExtResource( 1 )
+
 [resource]
-Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+default_font = SubResource( 4 )
+Button/colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/colors/font_color_hover = Color( 0.956863, 0.956863, 0.956863, 1 )
+Button/colors/font_color_pressed = Color( 0.956863, 0.956863, 0.956863, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = SubResource( 1 )
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
-Button/styles/pressed = null
+Button/styles/hover = ExtResource( 3 )
+Button/styles/normal = ExtResource( 4 )
+Button/styles/pressed = ExtResource( 2 )
 Label/colors/font_color = Color( 0, 0, 0, 1 )
 Label/colors/font_color_shadow = Color( 1, 1, 1, 1 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
