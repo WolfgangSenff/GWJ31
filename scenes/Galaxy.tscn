@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/ships/WASP.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/characters/Character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/gui/DeathMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/obstacles/Starbase.tscn" type="PackedScene" id=8]
 [ext_resource path="res://oregano_theme.tres" type="Theme" id=9]
 [ext_resource path="res://scenes/random_generation/RandomObstacleGenerator.gd" type="Script" id=10]
 
@@ -31,9 +30,7 @@ region_rect = Rect2( 0, 0, 10240, 10240 )
 
 [node name="IndividualObstacles" type="Node2D" parent="."]
 script = ExtResource( 10 )
-
-[node name="Starbase" parent="IndividualObstacles" instance=ExtResource( 8 )]
-position = Vector2( 130.015, -262.093 )
+TotalObstacles = 100
 
 [node name="PlayerHolder" type="Node2D" parent="."]
 
@@ -115,10 +112,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ZoomButton" type="Button" parent="GUI/MarginContainer/Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -54.0
+margin_bottom = 26.0
+text = "ZOOM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PauseMenu" parent="GUI" instance=ExtResource( 6 )]
 visible = false
 
 [node name="DeathMenu" parent="GUI" instance=ExtResource( 7 )]
 visible = false
+
+[connection signal="pressed" from="GUI/MarginContainer/Control/ZoomButton" to="." method="_on_ZoomButton_pressed"]
 
 [editable path="PlayerHolder/WASP"]
