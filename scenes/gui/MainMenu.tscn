@@ -264,33 +264,50 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu/CenterContainer"]
-margin_left = 35.0
-margin_right = 221.0
+margin_left = 116.0
+margin_right = 302.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 186, 0 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CreditsMenu/CenterContainer/VBoxContainer"]
-margin_right = 186.0
+margin_right = 192.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
+scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu/CenterContainer/VBoxContainer/ScrollContainer"]
-margin_right = 174.0
-margin_bottom = 158.0
+margin_right = 180.0
+margin_bottom = 549.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CreditsMenu/CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_right = 174.0
-margin_bottom = 158.0
+margin_right = 180.0
+margin_bottom = 549.0
+rect_min_size = Vector2( 180, 0 )
 text = "SFX:
 NenadSimic
 (freesound.org, CC0)
 V-ktor
 (freesound.org, CC0)
 tommccann
-(freesound.org, CC0)"
+(freesound.org, CC0)
+
+All music by Eric Matyas
+www.soundimage.org
+
+Ship art by Dalton5000
+
+Character by ShatteredReality
+
+All other art by BackAt50Ft
+
+Programming by BackAt50ft and ChosenUndead15
+
+Font by Kenney
+www.kenney.nl"
+autowrap = true
 
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
