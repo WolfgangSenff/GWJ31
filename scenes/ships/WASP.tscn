@@ -40,8 +40,9 @@ RoomId = "Helm"
 
 [node name="ShieldRoom" parent="Rooms" index="4" instance=ExtResource( 6 )]
 position = Vector2( 47.5, -15.5 )
+
 RoomId = "Shield"
-shield_pos = Vector2( -47.5, 0 )
+shield_pos = Vector2( -47.5, 20 )
 shieldCap = 10
 
 [node name="ShipUnderlying" parent="." index="1"]

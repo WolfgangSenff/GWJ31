@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/ships/WASP.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Galaxy.gd" type="Script" id=3]
 [ext_resource path="res://sprites/background_temporary.png" type="Texture" id=4]
-[ext_resource path="res://scenes/characters/Character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/gui/DeathMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://oregano_theme.tres" type="Theme" id=9]
@@ -33,24 +32,6 @@ script = ExtResource( 10 )
 TotalObstacles = 100
 
 [node name="PlayerHolder" type="Node2D" parent="."]
-
-[node name="WASP" parent="PlayerHolder" instance=ExtResource( 1 )]
-position = Vector2( 131.461, 106.346 )
-integrity = 10
-
-[node name="ShieldRoom" parent="PlayerHolder/WASP/Rooms" index="4"]
-shieldCap = 40
-
-[node name="Character" parent="PlayerHolder/WASP/Characters" index="0" instance=ExtResource( 5 )]
-position = Vector2( -47.3802, -15.3307 )
-CharacterName = "Snazzy"
-
-[node name="Character2" parent="PlayerHolder/WASP/Characters" index="1" instance=ExtResource( 5 )]
-position = Vector2( -0.309158, -7.01207 )
-CharacterName = "Zad"
-
-[node name="ActivationPopup" parent="PlayerHolder/WASP/CanvasLayer" index="0"]
-theme = null
 
 [node name="Camera2D" type="Camera2D" parent="." groups=[
 "Camera",
@@ -128,6 +109,10 @@ visible = false
 [node name="DeathMenu" parent="GUI" instance=ExtResource( 7 )]
 visible = false
 
+<<<<<<< HEAD
 [connection signal="pressed" from="GUI/MarginContainer/Control/ZoomButton" to="." method="_on_ZoomButton_pressed"]
 
 [editable path="PlayerHolder/WASP"]
+=======
+[editable path="IndividualObstacles/WASP"]
+>>>>>>> added ship selector and fixed some general bugs
