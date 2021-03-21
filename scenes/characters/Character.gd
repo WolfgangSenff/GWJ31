@@ -41,8 +41,9 @@ func _on_character_moved(direction) -> void:
 		else:
 			sprite.play("side_walk")
 			sprite.scale.x = -1
-		
-
+	
+	_character_selected = false
+	
 func _on_Character_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	pass
 	

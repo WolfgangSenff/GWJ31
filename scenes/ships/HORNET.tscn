@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://sprites/room_floor_32x32.png" type="Texture" id=1]
+[ext_resource path="res://scenes/rooms/WeaponsRoom32x32.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/rooms/ShieldRoom32x32.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/ship2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/rooms/EngineRoom16x32.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ShipBase.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/rooms/HelmRoom.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/rooms/CommsRoom16x32.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/weapons/MissileWeapon.tscn" type="PackedScene" id=9]
+
+[sub_resource type="NavigationPolygon" id=1]
+resource_local_to_scene = true
+vertices = PoolVector2Array( 60.0091, 36.5368, 35.1117, 38.126, 35.1117, 4.22321, 45.4415, 10.0503, 13.1278, 20.6449, -13.0939, 21.4395, -13.0939, 5.8124, 13.3927, 4.48807, -35.6075, 4.48807, -35.3426, 37.8612, -60.7697, 37.3314, -46.7318, 9.78539, 59.7442, 10.0503, 45.1766, -21.2039, -45.9372, -22.5282, -61.5643, 10.58 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 3, 12, 0 ), PoolIntArray( 13, 3, 2 ), PoolIntArray( 14, 13, 2, 7 ), PoolIntArray( 14, 7, 6, 8 ), PoolIntArray( 11, 14, 8 ), PoolIntArray( 11, 10, 15 ) ]
+outlines = [ PoolVector2Array( -60.7697, 37.3314, -61.5643, 10.58, -46.7318, 9.78539, -45.9372, -22.5282, 45.1766, -21.2039, 45.4415, 10.0503, 59.7442, 10.0503, 60.0091, 36.5368, 35.1117, 38.126, 35.1117, 4.22321, 13.3927, 4.48807, 13.1278, 20.6449, -13.0939, 21.4395, -13.0939, 5.8124, -35.6075, 4.48807, -35.3426, 37.8612 ) ]
+
+[node name="HORNET" instance=ExtResource( 6 )]
+
+[node name="HelmRoom" parent="Rooms" index="0" instance=ExtResource( 7 )]
+position = Vector2( 0, 16 )
+
+[node name="CommsRoom" parent="Rooms" index="1" instance=ExtResource( 8 )]
+position = Vector2( -40, -8 )
+
+[node name="EngineRoom" parent="Rooms" index="2" instance=ExtResource( 5 )]
+position = Vector2( 40, -8 )
+
+[node name="WeaponsRoom" parent="Rooms" index="3" instance=ExtResource( 2 )]
+position = Vector2( 16, -8 )
+Projectile = ExtResource( 9 )
+
+[node name="WeaponsRoom2" parent="Rooms" index="4" instance=ExtResource( 2 )]
+position = Vector2( -16, -8 )
+Projectile = ExtResource( 9 )
+
+[node name="ShieldRoom" parent="Rooms" index="5" instance=ExtResource( 3 )]
+position = Vector2( 48, 24 )
+shield_pos = Vector2( -48, -14 )
+shieldCap = 10
+
+[node name="ShipUnderlying" parent="." index="1"]
+texture = ExtResource( 4 )
+
+[node name="NavigationPolygonInstance" parent="CharacterNavigation" index="0"]
+navpoly = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="9"]
+position = Vector2( -48, 24 )
+z_index = -1
+texture = ExtResource( 1 )

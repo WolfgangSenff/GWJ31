@@ -4,6 +4,7 @@ export(Vector2) var shield_pos
 export(int) var shieldCap = 0
 var power = true
 
+
 onready var button = $CanvasLayer/ActivationPopup/MainContainer/ContentContainer/CenterContainer/Button
 
 func _ready():
@@ -17,11 +18,12 @@ func _on_Button_pressed():
 	if power == true:
 		button.text = "Turn On"
 		power = false
-		for i in $Shield.get_children():
-			i.get_node("Area2D").lit = power
 	else:
 		button.text = "Turn Off"
 		power = true
-		for i in $Shield.get_children():
-			i.get_node("Area2D").lit = power
+		
+	var shields = get_tree().get_nodes_in_group("shield_arc")
+	for shield in shields:
+		var area = shield.get_node("Area2D")
+		area.lit = power
 

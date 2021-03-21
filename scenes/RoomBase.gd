@@ -50,7 +50,7 @@ func _room_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var characters = get_tree().get_nodes_in_group("Character")
 			for character in characters:
 				if character._character_selected:
-					character.navigator.navigate_to(event.global_position)
+					character.navigator.navigate_to(event.position)
 					get_tree().call_group("Room", "enable_actions")
 					get_tree().set_group("CharacterSelectButton", "pressed", false)
 					break
@@ -58,10 +58,11 @@ func _room_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 # When the room is extended, override this to handle what happens.
 #  The default for now is to show the ActivationPopup
 func _handle_mouse_input():
-	_activation_popup.popup_centered_ratio(.8)
-	# Chose .8 for no real reason
+	_activation_popup.popup_centered_ratio(.6)
+	# Chose .6 for no real reason
 	
-
+func close_popup() -> void:
+	_activation_popup.hide()
 # Emit room_activated when this room actually executes its command,
 #  so like the Helm would emit the signal when the player changes
 #  the direction the ship is going
