@@ -20,6 +20,7 @@ func _ready() -> void:
 	var characters = player.get_node("Characters")
 	load_characters(characters)
 	for character in characters.get_children():
+		character.get_node("Navigator2D").navigation = player.get_node("CharacterNavigation")
 		var char_select_button = CharacterSelectScene.instance()
 		char_container.add_child(char_select_button)
 		char_select_button.character = character    
@@ -48,7 +49,6 @@ func _input(event):
 
 func _on_char_selected(is_pressed : bool, button) -> void:
 	button.character._character_selected = is_pressed
-	print(is_pressed)
 	
 	var chars = get_tree().get_nodes_in_group("Character")
 	for character in chars:
